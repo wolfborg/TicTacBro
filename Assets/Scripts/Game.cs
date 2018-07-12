@@ -59,7 +59,7 @@ public class Game : MonoBehaviour {
 	}
 
 	void dumbMove() {
-		int rand = Random.Range(0, 8);
+		int rand = Random.Range(0, 9);
 		if (squares[rand].text == "") {
 			squares[rand].text = "O";
 			victoryCheck(1);
