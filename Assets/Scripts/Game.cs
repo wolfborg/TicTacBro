@@ -34,7 +34,6 @@ public class Game : MonoBehaviour {
 	}
 
 	void smartMove() {
-		//int count = 0;
 		foreach(Text t in squares) {
 			if (t.text == "") {
 				t.text = "O";
@@ -42,19 +41,22 @@ public class Game : MonoBehaviour {
 					victoryCheck(1);
 					return;
 				}
+				t.text = "";
+			}
+		}
+
+		foreach(Text t in squares) {
+			if (t.text == "") {
 				t.text = "X";
 				if (isVictory()) {
 					t.text = "O";
 					victoryCheck(1);
-					//if (count > squares.Count - 1) {
-					//}
 					return;
 				}
 				t.text = "";
 			}
-
-			//count++;
 		}
+
 		dumbMove();
 	}
 
@@ -106,7 +108,7 @@ public class Game : MonoBehaviour {
 		string s2t = squares[s2].text;
 		string s3t = squares[s3].text;
 		return (s1t != "" && s2t != "" && s3t != "" && 
-				s1t == s2t && s2t == s3t && s1t == s3t);
+				s1t == s2t && s2t == s3t);
 	}
 
 	void victory(int state) {

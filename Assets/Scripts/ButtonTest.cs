@@ -11,8 +11,6 @@ public class ButtonTest : MonoBehaviour
 	// Use this for initialization
 	private void Start() {
 		updateText("Welcome");
-		
-
 	}
 
 	// Update is called once per frame
