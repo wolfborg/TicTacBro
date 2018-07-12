@@ -84,9 +84,17 @@ public class Game : MonoBehaviour {
 	}
 
 	bool isVictory() {
-		if (checkMatch(0, 1, 2) || checkMatch(3, 4, 5) || checkMatch(6, 7, 8) ||
-			checkMatch(0, 3, 6) || checkMatch(1, 4, 7) || checkMatch(2, 5, 8) ||
-			checkMatch(0, 4, 8) || checkMatch(2, 4, 6)) {
+		if (//horizonal
+			checkMatch(0, 1, 2) ||
+			checkMatch(3, 4, 5) ||
+			checkMatch(6, 7, 8) ||
+			//vertical
+			checkMatch(0, 3, 6) ||
+			checkMatch(1, 4, 7) ||
+			checkMatch(2, 5, 8) ||
+			//diagonal
+			checkMatch(0, 4, 8) ||
+			checkMatch(2, 4, 6)) {
 			return true;
 		}
 
@@ -98,7 +106,7 @@ public class Game : MonoBehaviour {
 		string s2t = squares[s2].text;
 		string s3t = squares[s3].text;
 		return (s1t != "" && s2t != "" && s3t != "" && 
-				s1t == s2t && s2t == s3t && s1t == s2t);
+				s1t == s2t && s2t == s3t && s1t == s3t);
 	}
 
 	void victory(int state) {
